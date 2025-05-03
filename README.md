@@ -17,14 +17,6 @@ Cada projeto está organizado em sua própria pasta com código-fonte, exemplos 
 - Testes simples e scripts automatizados
 
 ---
-## 📂 Projetos
-
-### 1. Projeto: Recipe Page
-- **Descrição**: Uma página web que possui a receita de um omelete.
-- **Tecnologias**: HTML, CSS
-- **Objetivos**: Aprender a estrutura básica de uma página web e aplicar estilização básica e responsividade.
----
-
 ## 🧪 Como Executar os Projetos
 
 1. Clone este repositório:
