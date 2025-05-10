@@ -1,8 +1,12 @@
+# Lista principal onde os livros serão armazenados
 livros = []
 
+# Função para adicionar um novo livro à lista
 def adicionar_Livro():
     titulo = input("Digite o titulo do livro: ")
     autor = input("Digite o autor do livro: ")
+    
+    # Validação do ano: precisa ter 4 dígitos numéricos
     while True:
         try:
             ano_input = input("Digite o ano do livro: ")
@@ -10,10 +14,11 @@ def adicionar_Livro():
                 ano_publi = int(ano_input)
                 break
             else:
-                print("Digite 4 digitos.")
+                print("Digite 4 dígitos.")
         except ValueError:
             print("Digite o ano corretamente.")     
     
+    # Validação do ISBN: deve conter entre 10 e 13 dígitos
     while True:
         try:
             isbn_input = input("Digite o ISBN do livro: ")
@@ -25,23 +30,25 @@ def adicionar_Livro():
         except ValueError:
             print("Digite o ISBN corretamente.")    
     
-    
+    # Cria um dicionário com os dados do livro
     livro = {
-        "titulo":titulo,
-        "autor":autor,
-        "ano":ano_publi,
-        "isbn":cod_isbn       
+        "titulo": titulo,
+        "autor": autor,
+        "ano": ano_publi,
+        "isbn": cod_isbn       
     }
     
+    # Adiciona o livro à lista
     livros.append(livro)
     print("Livro adicionado com sucesso!")
-    
-    
+
+# Função para atualizar os dados de um livro já existente
 def atualizar_Livros():
     if not livros:
         print("Nenhum livro na lista.")
         return
     
+    # Exibe os livros com índice numérico
     for i, livro in enumerate(livros, start=1):
         print(f"\nLivro {i}")
         for chave, valor in livro.items():
@@ -95,9 +102,7 @@ def atualizar_Livros():
     except ValueError:
         print("Entrada inválida. Digite apenas números.")
 
-    
-        
-    
+# Função para exibir todos os livros cadastrados
 def listar_Livros():
     if not livros:
         print("Nenhum livro adicionado...")
@@ -106,7 +111,8 @@ def listar_Livros():
             print(f"\nLivro {i}")
             for chave, valor in livro.items():
                 print(f"{chave.capitalize()} : {valor}")
-                
+
+# Função para deletar um livro da lista
 def deletar_Livro():
     try:
         if not livros:
@@ -118,10 +124,10 @@ def deletar_Livro():
                     print(f"{chave.capitalize()} : {valor}")
             valor = int(input("Qual livro você deseja deletar: "))
             indice = valor - 1
-            if indice >= 0 and indice < len(livros):
+            if 0 <= indice < len(livros):
                 livro_escolhido = livros[indice]
                 titulo = livro_escolhido.get("titulo", "Desconhecido")
-                opcao_delete = input(f"\n Tem certeza que deseja excluir o livro \"{titulo}\" ? (S/N) : ")
+                opcao_delete = input(f"\nTem certeza que deseja excluir o livro \"{titulo}\" ? (S/N) : ")
                 if opcao_delete.lower() == "s":
                     livros.pop(indice)
                     print("Livro deletado com sucesso!")
@@ -129,15 +135,11 @@ def deletar_Livro():
                     print("Operação cancelada.") 
             else:
                 print("Número inválido. Digite um número da lista")
-            
     except ValueError:
         print("Entrada inválida. Digite apenas números.")
 
-
-
-
+# Loop principal do sistema
 while True:
-    
     try:
         print("""
     ======= MENU ========      
@@ -165,4 +167,3 @@ while True:
         
     except ValueError:
         print("Digite apenas números.")
-    
