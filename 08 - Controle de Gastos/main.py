@@ -12,6 +12,7 @@ while True:
         [2] - Listar Gastos     
         [3] - Categorizar Gastos
         [4] - Excluir Gastos
+        [5] - Atualizar Gastos
         [0] - Sair          
             """)
         
@@ -25,10 +26,12 @@ while True:
             categorizar_gastos()
         elif opcao == 4:
             excluir_gasto()
-        elif opcao == 0:
+        elif opcao == 5:
+            atualizar_gasto()
+        elif opcao == 0:    
             break
         else:
-            print("Digite apenas numeros de 0 a 4.")
+            print("Digite apenas numeros de 0 a 5.")
         
     except ValueError:
         print("Digite apenas números.")
