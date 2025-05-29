@@ -8,7 +8,6 @@ def categorizar_gastos():
         print("Nenhum gasto registrado!")
     else:
         print("\nGASTOS POR CATEGORIA")
-        print("=" * 30)
         for despesa in despesas:
             categoria = despesa["categoria"]
             valor = despesa["valor"]
@@ -19,3 +18,5 @@ def categorizar_gastos():
             
         for categoria , valor in totais.items():
             print(f"{categoria.capitalize():<15} : R${valor:.2f}")
+
+
